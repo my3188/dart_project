@@ -9,7 +9,7 @@ class Rectangle {
 
   // 定义get的第1种方式
   // num get right => left + width;
-  // 定义get的第2种方式
+  // 定义get的第2种方式  这种方式真的很怪，说函数吧没有括号。。。真是不理解这个语法
   num get right {
     print('right-get');
     return left + width;
