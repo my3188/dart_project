@@ -10,7 +10,7 @@ class Rectangle {
   // 定义get的第1种方式
   // num get right => left + width;
   // 定义get的第2种方式  这种方式真的很怪，说函数吧没有括号。。。真是不理解这个语法
-  num get right {
+  num get right{
     print('right-get');
     return left + width;
   }
@@ -41,7 +41,7 @@ forcall() {
   callbacks.forEach((c) => c());
 }
 
-// 命名参数
+// 命名参数  对于age sex在调用的时候  就可以不关心顺序  因为已经有命名来做识别
 String printUserInfo(String username, {int age, String sex = '男'}) {
   //行参
   if (age != null) {
@@ -50,11 +50,26 @@ String printUserInfo(String username, {int age, String sex = '男'}) {
   return "姓名:$username---性别:$sex--年龄保密";
 }
 
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  // 命名式构造函数
+  Point.origin() {
+    x = 0;
+    y = 0;
+  }
+}
+
 // 主函数
 main() {
-  print(printUserInfo('张三', age: 20, sex: '未知'));
+  print(printUserInfo('张三', sex: '未知', age: 20));
   forcall();
   var rect = Rectangle(3, 4, 20, 15);
   print(rect.right);
   rect.right = 34;
+
+  Point point = Point(10,20);
+  print('point.x=${point.x}');
+  Point opoint = Point.origin();
+  print('opoint.x=${opoint.x}');
 }
